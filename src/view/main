@@ -1,0 +1,26 @@
+package view;
+
+
+import controller.ThreadVetor;
+
+import java.util.Random;
+
+public class Main {
+    static int[] vet = new int[1000];
+    static int i;
+    public static void main(String[] args) {
+        coisa(vet, i);
+        System.out.println("PROCESSANDO...Isso pode levar algum tempo (sqn)");
+        for (i = 1; i < 3; i++){
+            Thread threadv = new ThreadVetor(vet, i);
+            threadv.start();
+        }
+    }
+    public static void coisa(int vet[], int i){
+        Random aleatorio = new Random();
+        for (i = 0; i < vet.length; i++){
+                vet[i] = aleatorio.nextInt(101);
+        }
+        return;
+    }
+}
